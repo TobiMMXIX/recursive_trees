@@ -1,9 +1,9 @@
 clc;clear;
 
 % generate a number of trees with parallel workers
-number_of_trees = 5;
-% generate coloured trees if 1 else trees with coloured leaves
-use_coloured_trees = 0;
+number_of_trees = 2;
+% generate coloured trees if true else trees with coloured leaves
+use_coloured_trees = false;
 
 dirlist = size(dir('tree*.png'));
 dirlist = dirlist(:,1);
@@ -17,7 +17,7 @@ parfor i = dirlist:dirlist + (number_of_trees - 1)
     s = 0;
     r = true;
     tic
-    if use_coloured_trees == 1
+    if use_coloured_trees
         coloured_trees(Ax,Ay,Bx,By,s,r);
     else
         trees_coloured_leaves(Ax,Ay,Bx,By,s,r);
